@@ -1,0 +1,617 @@
+# import os
+# import json
+# import numpy as np
+# import pandas as pd
+# import warnings
+# warnings.filterwarnings('ignore')
+
+# from flask import Flask, request, jsonify, render_template
+# from werkzeug.utils import secure_filename
+
+# from sklearn.linear_model import LinearRegression
+# from sklearn.tree import DecisionTreeRegressor
+# from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+# from sklearn.model_selection import train_test_split
+# from sklearn.preprocessing import LabelEncoder, StandardScaler
+# from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
+
+# app = Flask(__name__)
+# app.config['UPLOAD_FOLDER'] = 'uploads'
+# app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+# app.config['SECRET_KEY'] = 'houseprice2024'
+
+# ALLOWED_EXTENSIONS = {'csv'}
+
+# def make_algorithms():
+#     return {
+#         'linear_regression': LinearRegression(),
+#         'decision_tree': DecisionTreeRegressor(max_depth=8, random_state=42),
+#         'random_forest': RandomForestRegressor(n_estimators=150, max_depth=12, random_state=42, n_jobs=-1),
+#         'gradient_boosting': GradientBoostingRegressor(n_estimators=150, learning_rate=0.08, max_depth=5, random_state=42),
+#     }
+
+# ALGO_DISPLAY_NAMES = {
+#     'linear_regression': 'Linear Regression',
+#     'decision_tree': 'Decision Tree',
+#     'random_forest': 'Random Forest',
+#     'gradient_boosting': 'Gradient Boosting',
+# }
+
+# # Global state
+# trained_models = {}
+# scaler = None
+# label_encoders = {}
+# feature_columns = []
+# use_log_target = False
+
+# def allowed_file(filename):
+#     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+# def generate_default_dataset():
+#     np.random.seed(42)
+#     n = 1000
+
+#     locations = ['Mumbai', 'Delhi', 'Bangalore', 'Hyderabad', 'Pune', 'Chennai',
+#                  'Kolkata', 'Ahmedabad', 'Jaipur', 'Lucknow', 'Noida', 'Gurgaon']
+#     property_types = ['Apartment', 'Villa', 'Independent House', 'Studio', 'Penthouse']
+
+#     location_multiplier = {
+#         'Mumbai': 2.5, 'Delhi': 2.0, 'Bangalore': 1.8, 'Gurgaon': 2.0,
+#         'Noida': 1.6, 'Hyderabad': 1.5, 'Pune': 1.4, 'Chennai': 1.4,
+#         'Kolkata': 1.2, 'Ahmedabad': 1.1, 'Jaipur': 1.0, 'Lucknow': 0.9
+#     }
+#     type_multiplier = {
+#         'Penthouse': 2.5, 'Villa': 2.0, 'Independent House': 1.5,
+#         'Apartment': 1.0, 'Studio': 0.7
+#     }
+
+#     loc_list = np.random.choice(locations, n)
+#     type_list = np.random.choice(property_types, n)
+#     bedrooms = np.random.choice([1, 2, 3, 4, 5], n, p=[0.1, 0.3, 0.35, 0.2, 0.05])
+#     bathrooms = np.clip(bedrooms + np.random.choice([-1, 0, 1], n, p=[0.15, 0.7, 0.15]), 1, 6)
+#     area = np.random.randint(400, 5000, n)
+#     age = np.random.randint(0, 30, n)
+#     floor = np.random.randint(0, 25, n)
+#     parking = np.random.choice([0, 1, 2], n, p=[0.3, 0.5, 0.2])
+
+#     prices = []
+#     for i in range(n):
+#         base_per_sqft = 3500
+#         price = (area[i] * base_per_sqft *
+#                  location_multiplier[loc_list[i]] *
+#                  type_multiplier[type_list[i]] *
+#                  (1 + 0.12 * bedrooms[i]) *
+#                  (1 - 0.012 * age[i]) *
+#                  (1 + 0.006 * floor[i]) *
+#                  (1 + 0.04 * parking[i]))
+#         noise = np.random.normal(1, 0.035)
+#         prices.append(max(int(price * noise), 500000))
+
+#     return pd.DataFrame({
+#         'Location': loc_list,
+#         'Property_Type': type_list,
+#         'Bedrooms': bedrooms,
+#         'Bathrooms': bathrooms,
+#         'Area_sqft': area,
+#         'Age_years': age,
+#         'Floor': floor,
+#         'Parking': parking,
+#         'Price': prices
+#     })
+
+# def preprocess_data(df):
+#     global label_encoders, scaler, feature_columns, use_log_target
+
+#     df = df.copy()
+#     df.columns = [c.strip() for c in df.columns]
+
+#     price_col = None
+#     for col in ['Price', 'price', 'PRICE', 'SalePrice', 'sale_price', 'target']:
+#         if col in df.columns:
+#             price_col = col
+#             break
+#     if price_col is None:
+#         num_cols = df.select_dtypes(include='number').columns.tolist()
+#         price_col = num_cols[-1] if num_cols else df.columns[-1]
+
+#     df[price_col] = pd.to_numeric(df[price_col], errors='coerce')
+#     df.dropna(subset=[price_col], inplace=True)
+#     y_raw = df[price_col].values
+#     y_train_target = np.log1p(y_raw)
+#     use_log_target = True
+
+#     X = df.drop(columns=[price_col])
+#     drop_cols = [c for c in X.columns if X[c].nunique() == len(X) and X[c].dtype != 'object']
+#     X = X.drop(columns=drop_cols)
+
+#     for col in list(X.columns):
+#         if X[col].dtype == 'object':
+#             mode = X[col].mode()
+#             X[col] = X[col].fillna(mode[0] if len(mode) else 'Unknown')
+#         else:
+#             X[col] = pd.to_numeric(X[col], errors='coerce')
+#             med = X[col].median()
+#             X[col] = X[col].fillna(0 if pd.isna(med) else med)
+
+#     X = X.replace([np.inf, -np.inf], 0).fillna(0)
+
+#     label_encoders = {}
+#     for col in X.select_dtypes(include='object').columns:
+#         le = LabelEncoder()
+#         X[col] = le.fit_transform(X[col].astype(str))
+#         label_encoders[col] = le
+
+#     feature_columns = list(X.columns)
+#     scaler = StandardScaler()
+#     X_scaled = scaler.fit_transform(X)
+
+#     return X_scaled, y_train_target, y_raw
+
+# # def train_models(df, selected_algos):
+# #     global trained_models
+# #     #  // model_scores = {}
+# #     model_scores = {}
+# #     X, y_log, y_raw = preprocess_data(df)
+# #     X_train, X_test, y_log_tr, y_log_te, y_raw_tr, y_raw_te = train_test_split(
+# #         X, y_log, y_raw, test_size=0.2, random_state=42)
+
+# #     results = {}
+# #     trained_models = {}
+
+# #     for algo_key in selected_algos:
+# #         if algo_key not in make_algorithms():
+# #             continue
+# #         algos = make_algorithms()
+# #         model = algos[algo_key]
+# #         try:
+# #             model.fit(X_train, y_log_tr)
+# #             y_pred_log = model.predict(X_test)
+# #             y_pred_raw = np.expm1(y_pred_log)
+# #             y_pred_raw = np.clip(y_pred_raw, 0, None)
+
+# #             r2   = r2_score(y_log_te, y_pred_log)
+# #             mae  = mean_absolute_error(y_raw_te, y_pred_raw)
+# #             rmse = np.sqrt(mean_squared_error(y_raw_te, y_pred_raw))
+
+# #             trained_models[algo_key] = model
+# #             results[algo_key] = {
+# #                 'name': ALGO_DISPLAY_NAMES[algo_key],
+# #                 'r2': round(float(r2), 4),
+# #                 'mae': round(float(mae), 2),
+# #                 'rmse': round(float(rmse), 2),
+# #                 'accuracy_pct': round(max(0, float(r2)) * 100, 1)
+# #             }
+# #         except Exception as e:
+# #             results[algo_key] = {'name': ALGO_DISPLAY_NAMES[algo_key], 'error': str(e)}
+
+# #     valid = [(k, v) for k, v in results.items() if 'r2' in v]
+# #     if valid:
+# #         best_key = max(valid, key=lambda x: x[1]['r2'])[0]
+# #         results[best_key]['is_best'] = True
+
+# #     return results
+
+# def train_models(df, selected_algos):
+#     global trained_models, model_scores   # ✅ ADD THIS
+
+#     X, y_log, y_raw = preprocess_data(df)
+#     X_train, X_test, y_log_tr, y_log_te, y_raw_tr, y_raw_te = train_test_split(
+#         X, y_log, y_raw, test_size=0.2, random_state=42)
+
+#     results = {}
+#     trained_models = {}
+#     model_scores = {}   # ✅ RESET
+
+#     for algo_key in selected_algos:
+#         if algo_key not in make_algorithms():
+#             continue
+#         algos = make_algorithms()
+#         model = algos[algo_key]
+#         try:
+#             model.fit(X_train, y_log_tr)
+#             y_pred_log = model.predict(X_test)
+#             y_pred_raw = np.expm1(y_pred_log)
+#             y_pred_raw = np.clip(y_pred_raw, 0, None)
+
+#             r2   = r2_score(y_log_te, y_pred_log)
+#             mae  = mean_absolute_error(y_raw_te, y_pred_raw)
+#             rmse = np.sqrt(mean_squared_error(y_raw_te, y_pred_raw))
+
+#             trained_models[algo_key] = model
+#             model_scores[algo_key] = r2   # ✅ IMPORTANT LINE
+
+#             results[algo_key] = {
+#                 'name': ALGO_DISPLAY_NAMES[algo_key],
+#                 'r2': round(float(r2), 4),
+#                 'mae': round(float(mae), 2),
+#                 'rmse': round(float(rmse), 2),
+#                 'accuracy_pct': round(max(0, float(r2)) * 100, 1)
+#             }
+#         except Exception as e:
+#             results[algo_key] = {'name': ALGO_DISPLAY_NAMES[algo_key], 'error': str(e)}
+
+#     valid = [(k, v) for k, v in results.items() if 'r2' in v]
+#     if valid:
+#         best_key = max(valid, key=lambda x: x[1]['r2'])[0]
+#         results[best_key]['is_best'] = True
+
+#     return results
+
+
+# def predict_price(input_data, selected_algos):
+#     if not trained_models:
+#         return None, 'Models not trained yet'
+
+#     row = []
+#     for col in feature_columns:
+#         val = input_data.get(col, input_data.get(col.lower(), 0))
+#         if col in label_encoders:
+#             le = label_encoders[col]
+#             try:
+#                 val = int(le.transform([str(val)])[0])
+#             except Exception:
+#                 val = 0
+#         else:
+#             try:
+#                 val = float(val)
+#             except Exception:
+#                 val = 0
+#         row.append(val)
+
+#     X_input = scaler.transform([row])
+#     predictions = {}
+
+#     for algo_key in selected_algos:
+#         if algo_key in trained_models:
+#             pred_log = trained_models[algo_key].predict(X_input)[0]
+#             pred_price = float(np.expm1(pred_log))
+#             predictions[algo_key] = {
+#                 'name': ALGO_DISPLAY_NAMES[algo_key],
+#                 'price': round(max(pred_price, 0), 2)
+#             }
+
+#     return predictions, None
+
+# @app.route('/')
+# def index():
+#     return render_template('index.html')
+
+# @app.route('/api/upload-dataset', methods=['GET', 'POST'])
+# def upload_dataset():
+#     if request.method == 'GET':
+#         return jsonify({'status': 'ready'})
+#     if 'file' not in request.files:
+#         return jsonify({'success': False, 'error': 'No file attached'})
+#     file = request.files['file']
+#     if not file.filename or not allowed_file(file.filename):
+#         return jsonify({'success': False, 'error': 'Upload a valid .csv file'})
+#     filename = secure_filename(file.filename)
+#     filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+#     file.save(filepath)
+#     try:
+#         df = pd.read_csv(filepath)
+#         return jsonify({'success': True, 'rows': len(df), 'columns': list(df.columns), 'filename': filename})
+#     except Exception as e:
+#         app.logger.error(f"Upload failed: {str(e)}")
+#         return jsonify({'success': False, 'error': str(e)})
+
+# @app.route('/api/train', methods=['POST'])
+# def train():
+#     data = request.get_json()
+#     selected_algos = data.get('algorithms', ['random_forest'])
+#     filename = data.get('filename')
+#     try:
+#         if filename:
+#             fp = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(filename))
+#             df = pd.read_csv(fp)
+#         else:
+#             df = generate_default_dataset()
+#         results = train_models(df, selected_algos)
+#         app.logger.info("Models trained successfully")
+#         return jsonify({'success': True, 'results': results, 'feature_columns': feature_columns})
+#     except Exception as e:
+#         app.logger.error(f"Train failed: {str(e)}")
+#         return jsonify({'success': False, 'error': str(e)})
+
+# # @app.route('/api/predict', methods=['POST'])
+# # def predict():
+# #     data = request.get_json()
+# #     input_data = data.get('input', {})
+# #     selected_algos = data.get('algorithms', list(trained_models.keys()))
+
+# #     if not trained_models:
+# #         return jsonify({'success': False, 'error': 'Please train the models first.'})
+
+# #     predictions, err = predict_price(input_data, selected_algos)
+
+# #     if err:
+# #         app.logger.error(f"Predict failed: {err}")
+# #         return jsonify({'success': False, 'error': err})
+
+# #     best_algo_key = max(predictions, key=lambda k: predictions[k]['price'])
+# #     best_algo = predictions[best_algo_key]
+
+# # return jsonify({
+# #     'success': True,
+# #     'all_predictions': predictions,
+# #     'best_prediction': best_algo
+# # })
+
+
+
+
+# # @app.route('/api/predict', methods=['POST'])
+# # def predict():
+# #     data = request.get_json()
+# #     input_data = data.get('input', {})
+# #     selected_algos = data.get('algorithms', list(trained_models.keys()))
+
+# #     if not trained_models:
+# #         return jsonify({'success': False, 'error': 'Please train the models first.'})
+
+# #     predictions, err = predict_price(input_data, selected_algos)
+
+# #     if err:
+# #         app.logger.error(f"Predict failed: {err}")
+# #         return jsonify({'success': False, 'error': err})
+
+    
+# #     if not predictions:
+# #         return jsonify({
+# #             'success': False,
+# #             'error': 'No predictions generated'
+# #         })
+
+# #     # best_algo_key = max(predictions, key=lambda k: predictions[k]['price'])
+# #     # best_algo = predictions[best_algo_key]
+# #     # find best model based on training R2
+# # best_algo_key = None
+# # best_r2 = -1
+
+# # for algo_key in predictions:
+# #     if algo_key in trained_models:
+# #         # use stored training results (you already calculate r2 in train_models)
+# #         r2 = 0
+# #         # you need to store r2 globally OR send it from frontend
+# #         # temporary fix: choose random_forest as best
+# #         if algo_key == 'random_forest':
+# #             best_algo_key = algo_key
+
+# # # fallback
+# # if not best_algo_key:
+# #     best_algo_key = list(predictions.keys())[0]
+
+# # best_prediction = predictions[best_algo_key]
+
+# #     return jsonify({
+# #         'success': True,
+# #         'all_predictions': predictions,
+# #         'best_prediction': best_algo
+# #     })
+
+# @app.route('/api/predict', methods=['POST'])
+# def predict():
+#     data = request.get_json()
+#     input_data = data.get('input', {})
+#     selected_algos = data.get('algorithms', list(trained_models.keys()))
+
+#     if not trained_models:
+#         return jsonify({'success': False, 'error': 'Please train the models first.'})
+
+#     predictions, err = predict_price(input_data, selected_algos)
+
+#     if err:
+#         app.logger.error(f"Predict failed: {err}")
+#         return jsonify({'success': False, 'error': err})
+
+#     if not predictions:
+#         return jsonify({
+#             'success': False,
+#             'error': 'No predictions generated'
+#         })
+
+#     # ✅ KEEP THIS INSIDE FUNCTION
+#     best_algo_key = None
+
+#     for algo_key in predictions:
+#         if algo_key == 'random_forest':
+#             best_algo_key = algo_key
+
+#     if not best_algo_key:
+#         best_algo_key = list(predictions.keys())[0]
+
+#     best_prediction = predictions[best_algo_key]
+
+#     return jsonify({
+#         'success': True,
+#         'all_predictions': predictions,
+#         'best_prediction': best_prediction
+#     }) 
+
+# @app.route('/api/status')
+# def status():
+#     return jsonify({'trained': bool(trained_models), 'algorithms': list(trained_models.keys()), 'features': feature_columns})
+
+# if __name__ == '__main__':
+#     os.makedirs('uploads', exist_ok=True)
+#     os.makedirs('models', exist_ok=True)
+#     app.run(debug=True, port=5000)
+
+# 🔥 FINAL CLEAN VERSION
+
+import os
+import numpy as np
+import pandas as pd
+import warnings
+warnings.filterwarnings('ignore')
+
+from flask import Flask, request, jsonify, render_template
+from werkzeug.utils import secure_filename
+
+from sklearn.linear_model import LinearRegression
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
+
+app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = 'uploads'
+
+ALLOWED_EXTENSIONS = {'csv'}
+
+# 🔥 GLOBAL STATE
+trained_models = {}
+model_scores = {}
+scaler = None
+label_encoders = {}
+feature_columns = []
+
+# ------------------ MODELS ------------------
+def make_algorithms():
+    return {
+        'linear_regression': LinearRegression(),
+        'decision_tree': DecisionTreeRegressor(max_depth=8, random_state=42),
+        'random_forest': RandomForestRegressor(n_estimators=150, max_depth=12, random_state=42),
+        'gradient_boosting': GradientBoostingRegressor(n_estimators=150, learning_rate=0.08, max_depth=5, random_state=42),
+    }
+
+ALGO_DISPLAY_NAMES = {
+    'linear_regression': 'Linear Regression',
+    'decision_tree': 'Decision Tree',
+    'random_forest': 'Random Forest',
+    'gradient_boosting': 'Gradient Boosting',
+}
+
+# ------------------ PREPROCESS ------------------
+def preprocess_data(df):
+    global scaler, label_encoders, feature_columns
+
+    y = df['Price']
+    X = df.drop(columns=['Price'])
+
+    # Encode categorical
+    label_encoders = {}
+    for col in X.select_dtypes(include='object').columns:
+        le = LabelEncoder()
+        X[col] = le.fit_transform(X[col].astype(str))
+        label_encoders[col] = le
+
+    feature_columns = list(X.columns)
+
+    scaler = StandardScaler()
+    X_scaled = scaler.fit_transform(X)
+
+    return X_scaled, np.log1p(y), y
+
+# ------------------ TRAIN ------------------
+def train_models(df, selected_algos):
+    global trained_models, model_scores
+
+    X, y_log, y_raw = preprocess_data(df)
+
+    X_train, X_test, y_train, y_test = train_test_split(X, y_log, test_size=0.2, random_state=42)
+
+    trained_models = {}
+    model_scores = {}
+    results = {}
+
+    for algo_key in selected_algos:
+        model = make_algorithms()[algo_key]
+        model.fit(X_train, y_train)
+
+        pred_log = model.predict(X_test)
+        pred = np.expm1(pred_log)
+
+        r2 = r2_score(y_test, pred_log)
+        mae = mean_absolute_error(np.expm1(y_test), pred)
+        rmse = np.sqrt(mean_squared_error(np.expm1(y_test), pred))
+
+        trained_models[algo_key] = model
+        model_scores[algo_key] = r2
+
+        results[algo_key] = {
+            "name": ALGO_DISPLAY_NAMES[algo_key],
+            "r2": round(r2, 4),
+            "mae": round(mae, 2),
+            "rmse": round(rmse, 2),
+            "accuracy_pct": round(max(0, r2) * 100, 1)
+        }
+
+    # mark best
+    best_algo = max(model_scores, key=model_scores.get)
+    results[best_algo]["is_best"] = True
+
+    return results
+
+# ------------------ PREDICT ------------------
+def predict_price(input_data):
+    row = []
+
+    for col in feature_columns:
+        val = input_data.get(col, 0)
+
+        if col in label_encoders:
+            try:
+                val = label_encoders[col].transform([str(val)])[0]
+            except:
+                val = 0
+
+        row.append(float(val))
+
+    X_input = scaler.transform([row])
+
+    predictions = {}
+
+    for key, model in trained_models.items():
+        pred_log = model.predict(X_input)[0]
+        pred = float(np.expm1(pred_log))
+
+        predictions[key] = {
+            "name": ALGO_DISPLAY_NAMES[key],
+            "price": round(pred, 2)
+        }
+
+    return predictions
+
+# ------------------ ROUTES ------------------
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/api/train', methods=['POST'])
+def train():
+    data = request.get_json()
+
+    df = pd.read_csv('your_dataset.csv')  # replace if needed
+    algos = data.get('algorithms', ['random_forest'])
+
+    results = train_models(df, algos)
+
+    return jsonify({
+        "success": True,
+        "results": results
+    })
+
+@app.route('/api/predict', methods=['POST'])
+def predict():
+    data = request.get_json()
+    input_data = data.get("input", {})
+
+    predictions = predict_price(input_data)
+
+    # 🔥 BEST MODEL USING R2
+    best_algo = max(model_scores, key=model_scores.get)
+    best_prediction = predictions[best_algo]
+
+    return jsonify({
+        "success": True,
+        "all_predictions": predictions,
+        "best_prediction": best_prediction
+    })
+
+# ------------------ RUN ------------------
+if __name__ == "__main__":
+    os.makedirs("uploads", exist_ok=True)
+    app.run(debug=True)

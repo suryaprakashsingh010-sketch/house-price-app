@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install *)",
+      "Bash(timeout 10 python final_fixed_app_v2.py)",
+      "Bash(python -m py_compile fixed_app.py)",
+      "Bash(timeout 8 python final_fixed_app_v2.py)",
+      "Bash(curl *)",
+      "Bash(python final_fixed_app_v2.py)",
+      "Bash(python -m json.tool)",
+      "Bash(taskkill /F /IM python.exe)",
+      "Bash(python app.py)",
+      "Bash(netstat -ano)",
+      "Bash(taskkill //F //PID 15124)",
+      "Bash(taskkill //F //PID 22588)",
+      "Bash(taskkill //F //PID 30564)",
+      "Bash(taskkill //F //PID 5308)",
+      "Bash(python *)"
+    ]
+  }
+}

@@ -1,0 +1,501 @@
+Location,Property_Type,Bedrooms,Bathrooms,Area_sqft,Age_years,Floor,Parking,Price
+Kolkata,Studio,5,6,1530,7,6,1,29515520
+Ahmedabad,Independent House,5,5,2791,11,5,1,50324607
+Pune,Apartment,4,4,421,11,16,2,3619384
+Bangalore,Studio,4,3,3602,4,18,2,48568003
+Pune,Apartment,2,1,2763,13,17,1,22908880
+Hyderabad,Studio,4,5,3899,7,14,2,56623593
+Mumbai,Studio,2,2,1421,5,9,1,12552432
+Hyderabad,Studio,1,1,2743,15,12,1,30857971
+Pune,Villa,1,1,3512,14,12,0,32429111
+Mumbai,Studio,3,4,3040,7,2,2,31478349
+Mumbai,Independent House,5,5,2678,8,6,0,27364923
+Kolkata,Penthouse,3,3,1970,0,2,0,37428223
+Bangalore,Apartment,5,5,902,13,6,2,6808127
+Lucknow,Studio,5,6,1263,6,16,0,29207351
+Hyderabad,Penthouse,5,6,3642,3,12,2,63512853
+Delhi,Villa,5,5,3460,5,11,1,34003121
+Lucknow,Studio,1,2,2637,0,0,0,43415945
+Chennai,Independent House,1,1,3696,18,9,2,42179263
+Chennai,Apartment,4,3,2253,16,19,1,24199863
+Pune,Apartment,1,2,2560,1,1,1,20214493
+Kolkata,Penthouse,1,1,3874,1,11,1,61935571
+Mumbai,Penthouse,4,4,597,10,15,0,7898166
+Jaipur,Studio,3,3,2911,2,19,2,54852984
+Bangalore,Studio,4,3,3376,7,6,1,44897704
+Ahmedabad,Apartment,3,2,2920,17,9,2,31953191
+Jaipur,Studio,4,3,2449,0,15,1,49110609
+Pune,Penthouse,3,4,2456,8,2,2,40490250
+Ahmedabad,Apartment,4,5,2048,7,3,1,24519692
+Ahmedabad,Studio,3,3,1896,2,17,1,34454167
+Jaipur,Studio,1,1,797,15,19,2,12861396
+Bangalore,Apartment,1,2,869,13,5,1,6174736
+Delhi,Penthouse,1,2,1359,0,4,0,14679712
+Bangalore,Studio,3,2,3983,16,11,1,49645773
+Pune,Independent House,4,3,1539,0,2,1,21485250
+Jaipur,Villa,2,3,2295,13,17,2,30271911
+Mumbai,Apartment,1,2,645,15,6,0,3573180
+Lucknow,Villa,3,3,1320,12,6,0,18970767
+Ahmedabad,Studio,3,4,1566,1,1,2,27934377
+Chennai,Independent House,1,1,974,16,19,1,11013734
+Pune,Apartment,5,4,1526,3,5,0,16567475
+Hyderabad,Independent House,4,3,769,9,18,0,9143102
+Lucknow,Villa,5,5,516,8,11,0,7828300
+Mumbai,Villa,2,1,3249,15,7,0,23581448
+Chennai,Penthouse,3,3,2079,18,4,1,37312125
+Jaipur,Penthouse,4,3,3518,16,13,1,79669544
+Lucknow,Villa,5,6,2035,0,4,2,35734502
+Lucknow,Villa,5,5,3651,9,18,1,64025616
+Hyderabad,Villa,1,2,1251,11,17,2,10775661
+Mumbai,Apartment,5,6,3898,4,11,2,29485713
+Delhi,Penthouse,3,3,2482,16,7,0,32473659
+Lucknow,Villa,2,2,817,18,8,2,11355067
+Ahmedabad,Studio,1,1,3468,3,9,0,51534825
+Jaipur,Independent House,1,2,1971,17,16,2,27839897
+Pune,Studio,1,2,1948,2,8,1,24113849
+Mumbai,Apartment,4,3,1765,12,18,0,12149354
+Hyderabad,Independent House,2,3,543,4,2,0,6421571
+Hyderabad,Independent House,5,4,3622,15,6,0,49602559
+Delhi,Studio,1,1,1353,11,16,0,13934686
+Chennai,Penthouse,2,1,3393,1,4,0,54242557
+Hyderabad,Apartment,1,1,1555,3,5,2,10414518
+Bangalore,Penthouse,4,4,2614,9,18,2,38730448
+Delhi,Studio,2,1,1294,8,6,0,13453551
+Bangalore,Penthouse,4,4,904,16,0,1,14347888
+Pune,Penthouse,3,2,2099,2,18,0,34238446
+Delhi,Apartment,1,1,1566,0,2,2,10569201
+Ahmedabad,Villa,4,4,3145,17,4,0,44506450
+Hyderabad,Independent House,1,1,1328,19,12,0,13231885
+Pune,Apartment,2,2,3271,17,12,0,27800846
+Kolkata,Apartment,1,1,623,14,16,2,4625832
+Chennai,Independent House,3,2,1884,0,1,0,26393536
+Bangalore,Apartment,5,6,917,16,4,2,8412768
+Kolkata,Penthouse,5,4,1113,9,18,0,24137439
+Pune,Apartment,1,2,1084,12,3,1,8514774
+Delhi,Studio,2,2,1073,2,17,0,11578084
+Chennai,Studio,5,5,1162,16,15,2,21660522
+Bangalore,Studio,2,2,1729,1,17,1,20356992
+Bangalore,Villa,4,3,565,0,14,1,6185973
+Pune,Penthouse,4,4,2631,16,9,0,46576190
+Hyderabad,Penthouse,2,2,2500,1,12,1,34447765
+Bangalore,Apartment,3,3,2335,7,3,0,18547836
+Bangalore,Independent House,3,2,1071,17,18,2,11443701
+Lucknow,Penthouse,5,5,3984,4,8,1,102712256
+Delhi,Apartment,2,1,3544,14,14,1,23200871
+Mumbai,Villa,4,3,2455,16,2,0,20092210
+Hyderabad,Villa,4,5,2525,1,12,1,27861278
+Delhi,Villa,3,4,3486,4,9,2,30065505
+Jaipur,Apartment,2,2,3259,16,12,0,35724865
+Delhi,Studio,2,3,3840,11,18,1,40877217
+Jaipur,Penthouse,4,4,3791,1,12,1,85280596
+Chennai,Penthouse,4,4,3290,8,2,2,62462484
+Ahmedabad,Penthouse,4,5,405,1,19,2,8793762
+Mumbai,Independent House,1,1,1246,10,7,1,9730988
+Bangalore,Penthouse,4,3,2773,3,18,0,42035690
+Mumbai,Villa,5,5,538,3,12,2,5696497
+Bangalore,Apartment,2,2,660,9,11,1,5255146
+Mumbai,Penthouse,1,1,3224,10,14,1,31629154
+Kolkata,Independent House,1,1,2765,11,17,1,33810597
+Mumbai,Studio,5,6,1272,4,13,1,14643079
+Bangalore,Penthouse,5,4,3298,13,3,0,53292498
+Ahmedabad,Independent House,5,5,2288,14,0,0,41314608
+Mumbai,Apartment,2,2,1220,7,7,2,6175469
+Bangalore,Independent House,2,3,2046,0,19,1,21339920
+Kolkata,Independent House,4,3,2997,0,4,2,47747845
+Lucknow,Apartment,5,6,1214,3,12,2,17500517
+Ahmedabad,Penthouse,5,6,2771,11,12,1,63608082
+Hyderabad,Studio,2,3,3754,4,19,2,46782369
+Lucknow,Villa,3,3,2588,7,17,0,38788084
+Hyderabad,Studio,5,4,2263,9,16,2,34834542
+Lucknow,Apartment,3,2,3933,7,8,1,48258840
+Hyderabad,Apartment,1,2,966,18,7,2,6659205
+Pune,Apartment,5,4,601,19,8,2,6736623
+Chennai,Villa,2,3,817,16,10,2,7663231
+Bangalore,Apartment,4,4,3972,0,16,0,34289278
+Delhi,Penthouse,1,2,1248,19,8,0,14154002
+Hyderabad,Studio,5,4,726,0,12,1,10934328
+Bangalore,Penthouse,1,1,1900,15,7,2,22909140
+Delhi,Apartment,3,4,3457,1,16,1,25513408
+Hyderabad,Apartment,5,6,1199,9,9,2,11681288
+Delhi,Studio,1,2,454,17,6,0,5005821
+Bangalore,Independent House,5,5,3208,14,4,2,39333638
+Bangalore,Apartment,4,5,1687,1,2,1,14795702
+Hyderabad,Studio,5,5,2916,13,15,1,45699762
+Kolkata,Villa,1,2,3556,18,15,0,37716519
+Delhi,Villa,1,2,3156,19,10,1,23347564
+Delhi,Independent House,4,3,1204,5,8,1,12795633
+Lucknow,Studio,1,1,3629,13,16,1,60913078
+Bangalore,Apartment,1,1,636,6,8,1,3697241
+Lucknow,Villa,5,4,3057,4,10,1,53201682
+Delhi,Penthouse,2,1,3381,1,16,0,40680857
+Kolkata,Penthouse,2,2,2474,5,7,1,42987018
+Jaipur,Penthouse,2,1,3872,13,1,1,75097673
+Hyderabad,Independent House,2,1,548,10,7,2,6083439
+Hyderabad,Apartment,3,4,3191,2,1,2,27210608
+Pune,Apartment,2,3,3619,18,2,2,30492018
+Mumbai,Independent House,5,6,881,8,1,0,8616489
+Mumbai,Apartment,5,6,2039,9,6,2,14627927
+Bangalore,Villa,5,6,3949,5,1,2,43142061
+Mumbai,Penthouse,1,1,1920,14,11,1,18710767
+Ahmedabad,Independent House,5,4,2150,4,15,1,39054922
+Jaipur,Penthouse,2,3,3759,9,15,2,73589281
+Mumbai,Villa,5,5,649,6,13,2,5300471
+Ahmedabad,Villa,3,4,1900,17,19,2,25720576
+Bangalore,Villa,3,3,1014,16,13,2,9942167
+Delhi,Independent House,5,6,3383,11,6,2,38067690
+Ahmedabad,Apartment,4,3,3429,12,17,0,40938625
+Delhi,Independent House,2,2,2861,12,12,1,26880455
+Bangalore,Independent House,4,3,1357,16,11,0,15155615
+Jaipur,Villa,1,2,3830,19,4,0,45784326
+Mumbai,Independent House,5,5,775,17,3,1,7170660
+Ahmedabad,Studio,4,5,2441,4,4,2,45872942
+Chennai,Independent House,5,5,3624,6,19,2,57647085
+Chennai,Penthouse,3,2,1789,9,10,1,31231156
+Jaipur,Villa,1,1,2953,2,5,0,35791892
+Mumbai,Independent House,3,3,1180,14,8,1,10452626
+Pune,Villa,3,2,1351,2,8,2,15024669
+Pune,Independent House,3,3,1383,14,5,2,18161224
+Pune,Villa,2,2,436,15,12,0,4416515
+Bangalore,Villa,3,3,2487,12,12,0,23793556
+Chennai,Independent House,4,3,3018,15,8,0,44615808
+Lucknow,Studio,3,3,1099,6,4,2,22144962
+Lucknow,Apartment,3,4,2982,9,9,2,36942513
+Delhi,Studio,2,2,988,11,6,1,10357044
+Mumbai,Apartment,1,2,3313,12,2,1,18814693
+Pune,Penthouse,4,4,3795,16,11,1,66825623
+Mumbai,Villa,1,1,873,17,17,1,5482339
+Kolkata,Penthouse,3,2,3326,14,18,2,62451325
+Lucknow,Villa,2,2,1137,3,16,2,14939225
+Kolkata,Penthouse,5,6,3331,1,14,1,71860729
+Hyderabad,Independent House,3,4,3296,11,14,0,38378050
+Jaipur,Penthouse,3,4,3728,5,14,1,79341748
+Bangalore,Apartment,1,1,1694,11,15,2,11351762
+Delhi,Studio,3,2,1359,11,2,1,15775336
+Jaipur,Apartment,4,3,2101,15,1,2,27454011
+Delhi,Independent House,5,4,3248,5,8,2,37321869
+Chennai,Independent House,1,1,3035,13,14,1,35805949
+Lucknow,Villa,4,3,401,0,0,0,6838641
+Mumbai,Penthouse,4,4,1317,6,1,1,17493043
+Delhi,Villa,2,3,827,16,7,2,6870261
+Bangalore,Independent House,1,1,3544,6,8,1,33379158
+Kolkata,Independent House,4,4,3785,2,8,1,59628479
+Delhi,Studio,4,3,1960,12,18,1,23970486
+Ahmedabad,Penthouse,5,6,2735,18,11,1,61754918
+Chennai,Villa,3,3,948,8,2,1,10406750
+Chennai,Apartment,4,3,3309,19,4,1,34507412
+Hyderabad,Studio,2,1,3394,8,3,1,42304424
+Delhi,Villa,4,4,694,9,18,2,7302974
+Lucknow,Penthouse,4,5,3708,17,7,0,88456738
+Ahmedabad,Studio,2,2,2781,1,4,0,45583821
+Chennai,Penthouse,1,1,1925,14,13,2,29160632
+Chennai,Apartment,3,2,2440,1,2,0,22920143
+Pune,Apartment,4,3,3366,14,10,1,31939221
+Jaipur,Apartment,5,6,3419,0,19,0,46283586
+Pune,Penthouse,4,3,2752,16,11,2,48393625
+Hyderabad,Villa,2,1,2958,4,19,1,27876743
+Mumbai,Independent House,5,4,1482,4,0,0,16418878
+Hyderabad,Penthouse,2,3,525,1,17,0,7756940
+Jaipur,Independent House,2,3,3899,5,19,2,58483646
+Kolkata,Villa,5,4,1414,7,5,0,20683734
+Chennai,Villa,1,2,1542,10,9,1,16467507
+Ahmedabad,Apartment,4,5,2263,13,3,0,26900890
+Mumbai,Independent House,5,4,2808,1,17,1,29885235
+Jaipur,Penthouse,1,1,3036,8,10,1,53902359
+Chennai,Studio,3,3,3953,17,12,0,62061750
+Mumbai,Apartment,5,6,3536,11,6,2,26324287
+Pune,Independent House,4,3,1896,0,16,0,25861604
+Bangalore,Villa,2,2,1426,7,15,1,12303288
+Chennai,Studio,5,4,1577,11,4,1,27570663
+Hyderabad,Independent House,2,3,2874,12,10,2,31469565
+Pune,Studio,1,2,450,14,3,0,4845240
+Hyderabad,Penthouse,4,4,2092,14,2,1,34219337
+Hyderabad,Villa,2,1,3036,3,10,2,27932360
+Kolkata,Apartment,2,1,2745,3,19,1,26627518
+Kolkata,Apartment,4,3,1785,14,12,2,20115748
+Jaipur,Villa,1,2,409,9,7,0,5984147
+Lucknow,Independent House,5,5,3111,18,3,2,61727704
+Hyderabad,Villa,1,2,2689,4,14,0,23211117
+Bangalore,Studio,2,1,1030,16,15,0,12477892
+Lucknow,Apartment,5,4,840,1,2,2,12781698
+Pune,Villa,3,3,3845,6,8,0,42182380
+Chennai,Villa,5,5,435,7,4,0,6474534
+Hyderabad,Independent House,1,1,2314,5,8,2,23180181
+Delhi,Studio,5,6,559,7,5,1,6993813
+Bangalore,Studio,5,5,3730,5,1,2,52962206
+Bangalore,Villa,4,4,1865,3,4,0,18134378
+Jaipur,Villa,1,2,3359,11,16,2,39358763
+Pune,Studio,4,3,685,19,5,1,10582595
+Delhi,Apartment,5,5,1923,1,13,0,15523732
+Jaipur,Penthouse,2,3,3208,8,0,2,61776275
+Bangalore,Studio,2,2,710,5,2,1,8304852
+Pune,Studio,2,3,960,9,5,1,12901624
+Bangalore,Villa,3,4,1347,13,8,2,12013963
+Delhi,Independent House,2,2,2211,17,9,0,20253131
+Delhi,Apartment,5,5,1712,3,13,0,14819103
+Hyderabad,Independent House,3,2,3349,12,1,0,39897575
+Delhi,Studio,1,2,2003,12,11,0,19751923
+Delhi,Studio,3,4,3458,4,18,1,39330041
+Lucknow,Apartment,2,2,1089,14,8,2,12132775
+Jaipur,Studio,3,4,3551,15,0,2,66269254
+Ahmedabad,Apartment,5,6,1803,19,19,1,22466263
+Hyderabad,Penthouse,3,4,2602,13,6,0,39471939
+Chennai,Penthouse,2,2,2852,5,14,0,45929277
+Kolkata,Penthouse,1,1,2660,17,12,0,42330302
+Pune,Villa,5,4,1071,3,16,2,13902658
+Pune,Studio,5,5,2957,3,1,1,49023575
+Ahmedabad,Independent House,1,1,1859,5,9,0,24480034
+Jaipur,Apartment,2,1,1520,9,17,1,16050659
+Ahmedabad,Penthouse,4,5,1158,1,7,2,24049649
+Mumbai,Studio,5,6,3028,11,0,2,36198136
+Pune,Penthouse,1,2,2490,0,12,2,33837836
+Hyderabad,Independent House,3,4,3962,4,4,1,46384652
+Chennai,Villa,4,3,1646,7,7,0,20633931
+Jaipur,Villa,2,2,2596,3,11,2,33585459
+Ahmedabad,Villa,5,4,2607,15,1,2,39472581
+Ahmedabad,Independent House,4,4,3432,17,19,1,57277970
+Hyderabad,Penthouse,4,5,1085,16,2,1,17924363
+Mumbai,Studio,1,2,2596,12,7,1,22977749
+Ahmedabad,Studio,3,3,1061,10,12,1,18919725
+Hyderabad,Independent House,2,3,1886,18,11,0,20253954
+Chennai,Independent House,5,4,1776,2,18,2,28348670
+Jaipur,Penthouse,2,2,2576,11,4,2,50268019
+Mumbai,Studio,3,3,3962,9,13,2,41977063
+Jaipur,Studio,4,4,2681,11,16,1,54521556
+Jaipur,Villa,5,4,3491,10,15,2,56501169
+Bangalore,Penthouse,2,3,1804,3,19,1,23990838
+Ahmedabad,Independent House,2,1,1892,7,6,0,26809662
+Mumbai,Studio,5,5,3986,4,15,1,47241608
+Kolkata,Studio,4,4,2983,1,17,2,53844540
+Mumbai,Independent House,5,5,1737,5,3,2,17962907
+Hyderabad,Apartment,1,1,1230,19,16,2,9103335
+Jaipur,Studio,5,4,2848,5,3,2,61865924
+Chennai,Studio,3,4,2584,15,4,0,40488483
+Bangalore,Penthouse,3,2,2285,12,5,0,32105737
+Bangalore,Penthouse,3,3,946,13,18,0,13097424
+Mumbai,Penthouse,2,1,2803,5,3,1,30473285
+Kolkata,Villa,3,2,3239,3,5,0,40600109
+Jaipur,Studio,1,1,3373,11,9,1,52879388
+Chennai,Studio,3,4,3691,13,9,1,58159710
+Chennai,Studio,1,1,1651,10,19,1,21673551
+Lucknow,Independent House,1,1,2643,17,0,2,39035511
+Delhi,Independent House,4,5,1343,6,9,1,14336876
+Ahmedabad,Apartment,5,5,2468,17,4,2,31048126
+Mumbai,Independent House,3,2,1252,11,8,0,11698604
+Delhi,Penthouse,4,5,2937,6,0,0,41212853
+Kolkata,Apartment,1,1,1365,13,5,1,10869926
+Mumbai,Villa,5,4,1937,15,1,1,16251533
+Kolkata,Studio,4,5,1010,18,16,2,17594334
+Pune,Studio,2,3,1491,13,19,1,19552021
+Jaipur,Villa,4,4,1280,1,2,0,19583348
+Lucknow,Studio,3,3,3126,19,17,2,61826395
+Ahmedabad,Studio,4,3,2611,4,7,2,48994301
+Jaipur,Villa,2,2,3739,1,6,2,48851889
+Ahmedabad,Apartment,4,3,1414,7,4,2,16690643
+Pune,Studio,3,2,1947,10,13,2,28308499
+Kolkata,Penthouse,5,5,668,1,3,1,14654985
+Lucknow,Independent House,3,2,1960,2,0,0,33637348
+Pune,Independent House,5,4,664,19,5,1,10040145
+Chennai,Independent House,4,3,1818,1,14,0,26679015
+Bangalore,Studio,4,4,1385,15,0,0,17494375
+Bangalore,Studio,2,1,2754,14,17,1,31155014
+Chennai,Apartment,5,6,3309,14,2,0,38233689
+Hyderabad,Penthouse,2,2,882,7,14,2,12618059
+Mumbai,Independent House,4,4,2344,14,5,2,22467919
+Pune,Independent House,1,1,1348,13,19,1,14432070
+Jaipur,Independent House,4,3,3678,17,18,0,65029997
+Chennai,Independent House,3,4,1866,1,13,1,25184751
+Bangalore,Independent House,3,2,680,7,13,1,6765096
+Chennai,Apartment,3,3,3394,2,9,2,33535831
+Bangalore,Studio,5,4,3123,7,16,1,44707822
+Jaipur,Apartment,4,3,2077,10,2,0,26695255
+Hyderabad,Independent House,4,4,2021,8,15,0,25315564
+Mumbai,Studio,3,4,893,17,4,0,8823523
+Jaipur,Penthouse,1,2,1376,1,0,0,24639504
+Kolkata,Studio,4,4,3006,14,8,2,53798795
+Ahmedabad,Penthouse,3,3,2211,18,3,2,44453227
+Kolkata,Studio,4,4,2523,12,2,1,44764160
+Kolkata,Apartment,1,2,3733,17,16,0,32384959
+Chennai,Villa,3,4,3851,9,0,0,44946602
+Ahmedabad,Independent House,5,4,3100,5,16,1,54301072
+Mumbai,Independent House,4,3,1001,6,16,1,9555572
+Jaipur,Apartment,5,4,952,16,18,2,12794413
+Kolkata,Apartment,5,6,1917,18,10,0,23744284
+Ahmedabad,Penthouse,5,4,3739,15,0,0,85455374
+Lucknow,Studio,2,1,919,13,12,2,16834993
+Delhi,Villa,2,2,3086,3,17,0,24133733
+Bangalore,Studio,4,3,731,18,14,0,9908967
+Jaipur,Villa,2,3,2266,12,9,1,29588330
+Delhi,Independent House,1,1,1963,2,19,1,16655785
+Ahmedabad,Villa,1,1,667,2,10,0,7111347
+Kolkata,Penthouse,2,1,1636,16,5,0,27946966
+Bangalore,Penthouse,1,1,2421,11,1,2,29649135
+Bangalore,Studio,4,5,1464,7,10,1,19539946
+Mumbai,Villa,4,3,406,3,4,0,3372944
+Mumbai,Studio,3,2,3673,17,2,2,38836020
+Mumbai,Apartment,5,5,1863,11,5,0,13723366
+Hyderabad,Apartment,5,5,3284,2,10,0,31800807
+Chennai,Independent House,3,3,2241,5,14,0,30534845
+Lucknow,Penthouse,2,1,1972,9,4,2,40585228
+Jaipur,Apartment,5,4,458,14,19,0,6634961
+Chennai,Studio,5,4,3960,16,12,1,71021878
+Kolkata,Independent House,3,3,1777,12,18,1,25534867
+Mumbai,Penthouse,4,3,699,10,6,2,8954031
+Bangalore,Penthouse,2,3,1395,18,16,2,17487692
+Delhi,Apartment,2,3,564,6,7,0,5044571
+Bangalore,Independent House,5,5,666,12,14,1,7640114
+Pune,Independent House,4,3,1376,19,8,1,18888110
+Hyderabad,Villa,4,4,2010,0,14,2,22276055
+Jaipur,Independent House,2,1,2114,13,17,2,32722440
+Kolkata,Penthouse,3,4,3800,7,19,0,71983664
+Mumbai,Apartment,1,1,1239,18,5,2,7111278
+Kolkata,Villa,5,5,1082,2,9,1,14110605
+Pune,Studio,2,1,1095,14,2,2,14654935
+Pune,Apartment,5,4,2167,7,4,0,22575264
+Mumbai,Studio,3,3,3150,7,8,1,32678466
+Chennai,Independent House,3,4,1309,12,12,1,17495398
+Bangalore,Independent House,2,1,2822,1,9,1,27641980
+Delhi,Independent House,3,3,3180,6,6,0,31450437
+Mumbai,Apartment,5,4,1956,18,18,0,14319146
+Kolkata,Villa,2,2,1987,19,17,1,23182034
+Delhi,Studio,4,3,2855,14,3,0,35286750
+Kolkata,Villa,2,2,1498,8,11,0,17470687
+Jaipur,Apartment,2,1,3625,17,5,0,38720775
+Jaipur,Apartment,3,4,536,1,11,1,6833993
+Bangalore,Penthouse,3,2,597,15,11,2,8514561
+Lucknow,Penthouse,1,2,3079,9,14,2,57624610
+Pune,Penthouse,3,2,1524,0,11,2,25007448
+Jaipur,Penthouse,4,5,2146,11,4,1,48769937
+Mumbai,Penthouse,4,3,1778,14,15,1,23038149
+Jaipur,Studio,1,1,2657,4,12,2,42402287
+Delhi,Apartment,1,1,1882,0,3,0,11722543
+Hyderabad,Villa,3,3,1339,7,0,0,13495251
+Bangalore,Penthouse,1,1,517,9,11,2,5379300
+Chennai,Apartment,4,4,3609,2,2,2,37327592
+Chennai,Apartment,4,4,1283,10,3,1,14480453
+Hyderabad,Studio,1,1,2395,9,14,1,27506958
+Jaipur,Villa,5,5,3862,0,6,0,63058734
+Kolkata,Studio,3,2,2607,10,7,0,42704757
+Kolkata,Apartment,5,5,1482,3,7,2,17940034
+Delhi,Studio,5,6,1547,11,3,1,20495365
+Ahmedabad,Apartment,5,5,3802,14,8,0,48144434
+Lucknow,Apartment,2,1,1817,12,18,2,20414895
+Pune,Studio,4,5,890,0,16,2,13838190
+Jaipur,Apartment,2,2,2176,17,4,0,23733979
+Ahmedabad,Apartment,2,2,2346,1,14,0,24256527
+Delhi,Villa,5,6,2157,2,5,0,21446626
+Ahmedabad,Studio,5,6,1019,0,16,2,21011530
+Chennai,Apartment,4,5,1675,15,11,2,17773047
+Pune,Apartment,2,3,2406,5,17,1,19799184
+Mumbai,Independent House,3,2,3295,1,1,2,30642979
+Ahmedabad,Penthouse,2,2,3823,3,14,1,70886516
+Hyderabad,Villa,5,5,3515,8,4,1,41713141
+Hyderabad,Penthouse,4,4,3726,10,9,1,61725702
+Chennai,Penthouse,3,2,748,2,11,0,13160447
+Lucknow,Studio,1,1,3718,1,18,0,61492902
+Pune,Independent House,3,2,3830,13,16,1,47992569
+Hyderabad,Penthouse,4,3,3562,17,3,0,57990519
+Hyderabad,Studio,2,3,1464,8,4,1,17971865
+Mumbai,Apartment,2,1,2360,3,4,2,13193279
+Lucknow,Independent House,3,2,1099,6,14,2,19846106
+Kolkata,Villa,5,4,861,3,9,2,11689045
+Ahmedabad,Apartment,3,4,1981,13,3,1,21996872
+Bangalore,Penthouse,1,2,1790,7,3,1,20938721
+Hyderabad,Independent House,2,1,2880,19,12,0,32056290
+Pune,Apartment,1,1,1099,5,4,0,7918677
+Bangalore,Independent House,4,4,1934,3,14,0,22200927
+Pune,Penthouse,2,2,3149,4,15,2,47304577
+Chennai,Studio,5,5,3108,7,16,2,55755911
+Kolkata,Villa,2,3,2609,8,16,2,29893293
+Mumbai,Studio,4,5,552,4,5,0,7332597
+Mumbai,Apartment,3,2,2936,1,7,2,18923666
+Mumbai,Villa,5,5,2760,16,1,2,25737605
+Jaipur,Penthouse,1,1,981,5,19,0,17701170
+Kolkata,Apartment,1,2,1897,14,3,1,17083068
+Mumbai,Independent House,3,4,2935,13,0,1,26735460
+Chennai,Apartment,1,1,1591,18,0,0,14587427
+Chennai,Penthouse,3,4,3163,15,10,1,55800676
+Kolkata,Villa,3,2,1239,6,13,2,15968258
+Bangalore,Villa,3,4,1633,19,15,0,14396762
+Pune,Independent House,4,3,3349,0,4,0,46152606
+Pune,Independent House,1,1,449,15,8,2,4585052
+Kolkata,Studio,1,1,1507,6,14,2,21324434
+Kolkata,Independent House,5,4,2215,17,9,0,36547842
+Chennai,Villa,5,5,1080,4,17,1,14618736
+Hyderabad,Apartment,1,2,2112,11,6,2,15296096
+Bangalore,Villa,4,4,2613,10,6,2,27565991
+Chennai,Studio,3,2,1349,19,11,2,21793691
+Pune,Villa,3,3,2142,9,8,0,24014518
+Chennai,Apartment,3,4,2955,1,3,0,28744305
+Pune,Independent House,3,2,3338,3,1,1,42022630
+Jaipur,Penthouse,4,3,3328,12,3,2,75315480
+Mumbai,Villa,4,3,3708,13,9,1,30335422
+Chennai,Apartment,2,2,2218,17,2,2,20092444
+Jaipur,Independent House,2,3,1671,16,10,0,25414083
+Jaipur,Villa,2,1,2486,16,14,2,32181496
+Pune,Independent House,2,3,460,17,2,1,5288525
+Lucknow,Apartment,3,3,2029,15,9,1,25307992
+Ahmedabad,Independent House,2,2,3280,13,7,2,47074401
+Lucknow,Apartment,1,1,789,10,6,0,8034852
+Lucknow,Independent House,3,3,2441,7,3,1,42886198
+Pune,Studio,2,2,462,10,12,1,5864086
+Chennai,Studio,4,5,3600,2,13,1,60482046
+Delhi,Apartment,1,1,3509,15,4,0,21500802
+Kolkata,Independent House,5,6,2019,18,2,0,33399770
+Mumbai,Studio,4,5,2759,9,19,0,30654425
+Kolkata,Penthouse,4,4,2425,16,9,1,49172707
+Kolkata,Apartment,1,1,3276,8,5,2,28591451
+Jaipur,Penthouse,2,3,2912,11,15,2,57125839
+Jaipur,Apartment,5,6,2100,12,13,2,26969469
+Kolkata,Penthouse,2,1,1045,11,17,1,17849248
+Chennai,Apartment,1,1,2682,9,18,1,22283268
+Bangalore,Studio,2,1,1657,10,13,2,18647923
+Kolkata,Independent House,4,5,1932,8,14,0,30964610
+Lucknow,Villa,1,1,1345,1,18,0,15700972
+Chennai,Apartment,2,1,638,12,15,0,6120831
+Kolkata,Villa,1,2,1692,4,16,2,17863762
+Kolkata,Villa,1,2,1220,0,16,1,14193596
+Pune,Independent House,2,1,3115,8,0,0,36076416
+Jaipur,Apartment,3,4,3077,8,6,1,36666778
+Jaipur,Penthouse,3,4,3389,7,17,2,71394276
+Delhi,Studio,1,2,1131,19,16,0,11341350
+Chennai,Studio,5,6,2169,2,18,2,37585163
+Chennai,Independent House,4,5,2307,10,10,2,34467958
+Mumbai,Apartment,4,5,3595,1,14,0,24962697
+Hyderabad,Apartment,2,2,2292,15,12,1,17919513
+Mumbai,Independent House,5,6,443,6,8,2,5356729
+Chennai,Penthouse,2,1,3871,2,3,1,63642512
+Lucknow,Studio,2,1,3740,10,15,2,68772564
+Jaipur,Penthouse,3,3,2029,11,9,2,42276861
+Lucknow,Villa,1,1,2952,14,2,1,37777721
+Bangalore,Penthouse,1,1,3132,13,12,2,36445195
+Kolkata,Penthouse,4,5,3334,5,19,1,67522377
+Pune,Studio,4,3,791,0,4,2,12122076
+Bangalore,Penthouse,4,4,1089,15,5,0,15683835
+Ahmedabad,Independent House,5,6,503,12,5,1,8743975
+Chennai,Penthouse,3,4,1356,9,2,0,24120114
+Bangalore,Penthouse,5,4,3250,19,10,2,52502040
+Pune,Independent House,2,1,1391,3,14,2,16907848
+Lucknow,Independent House,3,2,3596,9,18,0,62271624
+Bangalore,Independent House,2,2,972,10,19,2,9496417
+Kolkata,Independent House,2,3,2987,4,4,2,39994761
+Chennai,Apartment,2,2,2344,13,10,2,19631524
+Delhi,Independent House,2,3,1498,11,4,2,14397993
+Jaipur,Villa,3,2,3535,6,3,0,50170225
+Ahmedabad,Studio,2,3,3168,13,13,1,52478840
+Ahmedabad,Studio,3,3,1517,12,12,1,27247547
+Pune,Apartment,2,2,2010,7,11,2,16480282
+Hyderabad,Studio,3,4,1375,12,14,2,18515497
+Pune,Apartment,3,4,2659,4,9,0,24341226
+Ahmedabad,Penthouse,4,5,1732,11,16,0,37136828
+Lucknow,Penthouse,3,3,1946,1,17,2,42929778
+Hyderabad,Villa,2,3,2932,19,2,0,27091085
+Jaipur,Studio,3,3,591,7,9,2,10356032
+Hyderabad,Penthouse,2,2,3987,17,5,2,55327532
+Ahmedabad,Villa,3,3,2543,4,5,1,33137344
+Bangalore,Studio,4,4,1766,16,0,2,23744060
+Lucknow,Apartment,2,1,2631,1,8,1,30264321
+Bangalore,Studio,1,2,2553,14,14,2,27780259
+Kolkata,Penthouse,1,1,439,19,17,0,6927557
+Chennai,Independent House,4,5,3208,2,15,1,48009652
+Kolkata,Studio,3,2,2671,7,12,0,45397508
+Lucknow,Studio,4,5,1495,12,5,2,32626579
